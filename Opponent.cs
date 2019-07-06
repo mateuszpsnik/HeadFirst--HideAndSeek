@@ -36,7 +36,7 @@ namespace HeadFirst__HideAndSeek
             }
         }
 
-        public bool Check(Location location)
+        public bool Check(Location location) 
         {
             if (myLocation == location)
                 return true;
