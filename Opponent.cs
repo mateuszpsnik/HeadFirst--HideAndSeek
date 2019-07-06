@@ -19,24 +19,20 @@ namespace HeadFirst__HideAndSeek
 
         public void Move()
         {
-            if (myLocation is IHasExteriorDoor)
+            bool hidden = false;
+            while (!hidden)
             {
-                if (random.Next(2) == 1)
+                if (myLocation is IHasExteriorDoor)
                 {
-                    IHasExteriorDoor hadDoor;
-                    hadDoor = myLocation as IHasExteriorDoor;
-                    myLocation = hadDoor.DoorLocation;
-                }   
-                else
-                {
-                    int exitsLength = myLocation.Exits.Length;
-                    myLocation = myLocation.Exits[random.Next(exitsLength)];
+                    IHasExteriorDoor locationWithDoor = myLocation as IHasExteriorDoor;
+                    if (random.Next(2) == 1)
+                        myLocation = locationWithDoor.DoorLocation;
                 }
-            }
-            else
-            {
-                int exitsLength = myLocation.Exits.Length;
-                myLocation = myLocation.Exits[random.Next(exitsLength)];
+
+                int rand = random.Next(myLocation.Exits.Length);
+                myLocation = myLocation.Exits[rand];
+                if (myLocation is IHidingPlace)
+                    hidden = true;
             }
         }
 
