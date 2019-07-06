@@ -81,6 +81,7 @@
             this.check.TabIndex = 4;
             this.check.Text = "----";
             this.check.UseVisualStyleBackColor = true;
+            this.check.Click += new System.EventHandler(this.Check_Click);
             // 
             // hide
             // 
@@ -90,6 +91,7 @@
             this.hide.TabIndex = 5;
             this.hide.Text = "Kryć się!";
             this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.Hide_Click);
             // 
             // Form1
             // 
